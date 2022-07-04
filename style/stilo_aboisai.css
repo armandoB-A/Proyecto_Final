@@ -1,0 +1,256 @@
+:root {
+    --primario: #0cb91a;
+    --secundario: #FFC845;
+    --negro: #000000;
+    --claro: #FFFFFF;
+    --gris: #EEEEEE;
+    --oscuro: #43d118;
+    --padding: 1rem;
+    --padding2: 2rem;
+}
+
+html {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--gris);
+    font-family: 'Roboto', sans-serif;
+    background-image: url(../img/fondos-de-pantalla-gaming.png);
+}
+
+.contenedor {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+img {
+    max-width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-weight: 300;
+    margin: 1rem 0;
+    color: #EEEEEE;
+}
+
+h1 {
+    font-size: 2.4rem;
+}
+
+h2 {
+    font-size: 2.2rem;
+}
+
+h3 {
+    font-size: 2rem;
+}
+
+p {
+    line-height: 2rem;
+    font-size: 1.2rem;
+    font-weight: 300;
+    color: #EEEEEE;
+}
+
+.boton {
+    background-color: var(--primario);
+    display: block;
+    padding: var(--padding);
+    text-align: center;
+    color: var(--claro);
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 1px solid var(--primario);
+    transition: all .3s ease-in-out;
+}
+
+.boton:hover {
+    background-color: var(--claro);
+    color: var(--primario);
+}
+
+.header {
+    margin-top: 2rem;
+    background-color: var(--primario);
+    padding: var(--padding);
+}
+
+.header .barra {
+    display: grid;
+    grid-template-rows: repeat(2, auto);
+    grid-row-gap: 2rem;
+    justify-content: center;
+}
+
+.header .menu {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+}
+
+.header .menu a {
+    text-align: center;
+    color: var(--claro);
+    text-decoration: none;
+    font-size: 1.4rem;
+}
+
+@media (min-width:992px) {
+    .header .barra {
+        grid-template-columns: 30% 1fr 30%;
+        justify-content: space-around;
+        grid-template-rows: unset;
+    }
+    .header .menu {
+        grid-column: 3/4;
+        display: grid;
+        align-content: center;
+    }
+}
+
+
+/*Nosotros*/
+
+.nosotros {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+@media (min-width: 992px) {
+    .nosotros {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-column-gap: 2rem;
+        text-align: left;
+    }
+}
+
+.contenido-nosotros {
+    display: grid;
+    align-content: center;
+}
+
+
+/*Venta*/
+
+.venta {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, auto);
+    grid-gap: 1rem;
+}
+
+.venta img {
+    width: 100%;
+}
+
+.destacada {
+    grid-column: 1/3;
+    grid-template-columns: repeat(2, 1fr);
+    display: grid;
+}
+
+@media (min-width:768px) {
+    .venta {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, auto);
+    }
+}
+
+.card {
+    background-color: var(--claro);
+    padding: var(--padding);
+    border: 1px solid rgb(199, 199, 199);
+}
+
+.card p {
+    font-size: .9rem;
+    line-height: 1.8rem;
+}
+
+.anuncio {
+    display: grid;
+}
+
+.anuncio .precio {
+    font-size: 1.4rem;
+    font-weight: 400;
+}
+
+.precio span {
+    font-weight: 300;
+    color: var(--primario);
+}
+
+
+/*Footer*/
+
+.footer {
+    background-color: var(--primario);
+    margin-top: var(--padding2);
+    padding-top: var(--padding2);
+    color: var(--claro);
+}
+
+@media (min-width:768px) {
+    .footer .contenedor {
+        display: grid;
+        grid-template-columns: 30% 20% 2fr;
+        grid-column-gap: 2rem;
+    }
+}
+
+.footer .widget h3 {
+    margin-bottom: 2rem;
+}
+
+.footer .navegacion a {
+    display: block;
+    color: var(--claro);
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    text-decoration: none;
+}
+
+.footer .contenedor-casas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 1rem;
+}
+
+.footer .casa {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 1rem;
+}
+
+.footer .casa p {
+    margin: 0;
+}
+
+.copyright {
+    background-color: var(--oscuro);
+    margin: 3rem 0 0 0;
+    text-align: center;
+    padding: var(--padding);
+}
+
+.carrostylo {
+    display: flex;
+    flex-direction: column;
+}
+
+.carrostylo :nth-child(1) {
+    align-self: center;
+}
+
+.carrostylo :nth-child(2) {
+    align-self: self-end;
+}
+
+.bd-example {
+    margin: 20px;
+}
