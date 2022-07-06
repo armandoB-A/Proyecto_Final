@@ -1,3 +1,7 @@
+<?php
+session_start();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,6 +20,7 @@
 <body>
     <!--NAVBAR-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
+
         <div class="container-fluid .mb-6">
             <a class="navbar-brand " href="#">Presupuestos para Tu PC </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -42,12 +47,17 @@
                         <a class="nav-link" href="login.php">Mi cuenta</a>
                     </li>
                 </ul>
-                <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="buscar" aria-label="Search">
-                    <button class="btn btn-outline-success bg-dark" type="submit">buscar</button>
-                </form>
                 <div class="d-flex">
-                    <a class="btn btn-success" type="button" href="login.php">Ingresar</a>
+                    <h5>usuario  </h5>
+                    <?php
+                    if (isset($_SESSION['usuario'])) {
+                        ?>
+                        <a class="btn btn-success" type="button" href="login.php"><?php echo $_SESSION['usuario']?></a>
+                        <?php
+                    }
+                    
+                    ?>
+
                 </div>
             </div>
         </div>
@@ -246,6 +256,7 @@
         </div>
     </div>
     <div id="Separador">
+
         <p>Titulo 1</p>
         <p>Titulo 2</p>
         <p>Titulo 3</p>
@@ -257,12 +268,6 @@
             Arma tu gabinete y compra tu mejor laptop gamer con nosotos , confinza y grantia Llamanos al telefo 0180055902 y aparta tu pc gamer Siguenos en todas nuestra Redes sociales Facebook Twiter
         </p>
     </footer>
-
-
-
-
-
-
 
     <script src="bootstrap-5.1.3-dist/bootstrap-5.1.3-dist/js/bootstrap.min.js"></script>
 

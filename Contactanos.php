@@ -17,8 +17,8 @@
         <div class="container-fluid .mb-6">
             <a class="navbar-brand " href="#">Presupuestos para Tu PC </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+                <span class="navbar-toggler-icon"></span>
+            </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
@@ -34,16 +34,25 @@
                         <a class="nav-link " href="ArmaPc.php">arma tu pc</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active"  aria-current="page" href="Contactanos.php">Contactanos</a>
+                        <a class="nav-link active" aria-current="page" href="Contactanos.php">Contactanos</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="login.php">Mi cuenta</a>
                     </li>
                 </ul>
-                <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success bg-dark" type="submit">Search</button>
-                </form>
+
+                <div class="d-flex">
+                    <h5>usuario </h5>
+                    <?php
+                    if (isset($_SESSION['usuario'])) {
+                    ?>
+                        <a class="btn btn-success" type="button" href="login.php"><?php echo $_SESSION['usuario'] ?></a>
+                    <?php
+                    }
+
+                    ?>
+
+                </div>
             </div>
         </div>
     </nav>
@@ -51,9 +60,9 @@
 
     <!--Footer-->
     <footer>
-    <p class="copyright">
-        Arma tu gabinete y compra tu mejor laptop gamer con nosotos , confinza y grantia Llamanos al telefo 0180055902 y aparta tu pc gamer Siguenos en todas nuestra Redes sociales Facebook Twiter
-    </p>
+        <p class="copyright">
+            Arma tu gabinete y compra tu mejor laptop gamer con nosotos , confinza y grantia Llamanos al telefo 0180055902 y aparta tu pc gamer Siguenos en todas nuestra Redes sociales Facebook Twiter
+        </p>
     </footer>
 
 </body>

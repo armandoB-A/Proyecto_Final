@@ -45,10 +45,18 @@ session_start();
                         <a class="nav-link" href="login.php">Mi cuenta</a>
                     </li>
                 </ul>
-                <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success bg-dark" type="submit">Search</button>
-                </form>
+                <div class="d-flex">
+                    <h5>usuario </h5>
+                    <?php
+                    if (isset($_SESSION['usuario'])) {
+                    ?>
+                        <a class="btn btn-success" type="button" href="login.php"><?php echo $_SESSION['usuario'] ?></a>
+                    <?php
+                    }
+
+                    ?>
+
+                </div>
             </div>
         </div>
     </nav>
@@ -70,22 +78,25 @@ session_start();
             </thead>
             <tbody>
                 <?php
-                include ("proyectoP/coneccion/conn.php");
+                include("proyectoP/coneccion/conn.php");
                 global $conn;
-                $ejectQuery = mysqli_query($conn, "CALL mostarcarrito()");
-                $i=1;
-                while ($row = mysqli_fetch_array($ejectQuery)) {
-                    echo "<tr>
+                if (isset($_SESSION['usuario'])) {
+                    $ejectQuery = mysqli_query($conn, "CALL mostrarCarritoC('" . $_SESSION['usuario'] . "')");
+                    $i = 1;
+                    while ($row = mysqli_fetch_array($ejectQuery)) {
+                        echo "<tr>
                             <td>" . $i . "</td>
                             <td>" . $row[1] . "</td>
                             <td>" . $row[2] . "</td>
                             <td>" . $row[3] . "</td>
                             <td><a href='eliminarEcarr.php?clave=$row[0]'><i class='fas fa-trash-alt' title='Eliminar'></i></a></td>";
 
-                    echo "</tr>\n";
-                    $i++;
+                        echo "</tr>\n";
+                        $i++;
+                    }
+                    $i = 1;
                 }
-                $i=1;
+
                 ?>
             </tbody>
         </table>

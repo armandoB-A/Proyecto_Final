@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -47,21 +46,14 @@ session_start();
                     </li>
                 </ul>
                 <div class="d-flex">
-                    <h5>usuario </h5>
+                    <h5>usuario  </h5>
                     <?php
                     if (isset($_SESSION['usuario'])) {
-                    ?>
-                        <a class="btn btn-success" type="button" href="login.php"><?php echo $_SESSION['usuario'] ?></a>
-                    <?php
+                        ?>
+                        <a class="btn btn-success" type="button" href="login.php"><?php echo $_SESSION['usuario']?></a>
+                        <?php
                     }
-                    else {
-                    ?>
-                        <script>
-                            alert("debe iniciar secion para comprar");
-                        </script>
-                    <?php
-                    }
-
+                    
                     ?>
 
                 </div>
@@ -74,18 +66,18 @@ session_start();
         <?php
         if (isset($_SESSION['usuario'])) {
             include("proyectoP/coneccion/conn.php");
-            $queryP = "SELECT count(*) FROM carrito_td WHERE id_usuario=(SELECT idUsusrio FROM usuario_jarmando WHERE usuario='" . $_SESSION['usuario'] . "');";
+            $queryP = "SELECT count(*) FROM carrito_td WHERE id_usuario=(SELECT idUsusrio FROM usuario_jarmando WHERE usuario='".$_SESSION['usuario']."');";
             $exeqQuery = mysqli_query($conn, $queryP);
             $tabla = mysqli_fetch_array($exeqQuery);
-
-        ?>
+            
+            ?>
             <a href="procesarCompra_carrito.php"><i class='fa-solid fa-cart-shopping w3-xxlarge' style='color: #f3da35;font-size:50px; justify-content: flex-end;'>
-                    <span class="badge bg-primary rounded-pill" style='color: #f3da35;font-size:15px;'><?php echo $tabla[0] ?></span>
-                </i></a>
-        <?php
+                <span class="badge bg-primary rounded-pill" style='color: #f3da35;font-size:15px;'><?php echo $tabla[0] ?></span>
+            </i></a>
+            <?php
         }
         ?>
-
+        
     </div>
 
     <div class="bd-example">
@@ -145,20 +137,33 @@ session_start();
                                 <img src='...' class='card-img-top' alt='...'>
                                 <div class='card-body' id='" . $row[3] . "' name=\"" . $row[3] . "\" >
                                     <h5 class='card-title'>" . $row[0] . "</h5>
-                                    <p class='card-text'>" . $row[1] . "</p>";
-                        if (isset($_SESSION['usuario'])) {
-                            echo "<a  href=\"procesarCarrito.php?clave=" . $i  . "&folio=" . $row[3] . "\"><button onclick=\"clickMe('" . $row[3] . "')\" type='button' class='btn btn-primary' > $" . $row[2] . " </button></a>";
-                        } 
-
-                        echo "
+                                    <p class='card-text'>" . $row[1] . "</p>
+                                    <a  href=\"procesarCarrito.php?clave=" . $i  . "&folio=" . $row[3] . "\"><button onclick=\"clickMe('" . $row[3] . "')\" type='button' class='btn btn-primary' > $" . $row[2] . " </button></a>
+                                    
                                 </div>
                             </div>
                             ";
                     }
                     ?>
 
+                    <script>
+                        var result
+                        result = "sss";
 
+                        function clickMe(param1) {
+                            permiso="<?php ?>";
+                            //document.getElementById("" + param1 + "").value = valor;
+                            result = param1;
+                            //
+                            //
+                            alert(resultado + " " + param1);
+                        }
+                    </script>
                     <?php
+                    function permiso()
+                    {
+                        # code...
+                    }
                     /*
                     $s = "";
                     $clave = "";

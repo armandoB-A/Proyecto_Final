@@ -40,10 +40,19 @@
                         <a class="nav-link active" aria-current="page" href="Micuenta.html">Mi cuenta</a>
                     </li>
                 </ul>
-                <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success bg-dark" type="submit">Search</button>
-                </form>
+                
+                <div class="d-flex">
+                    <h5>usuario  </h5>
+                    <?php
+                    if (isset($_SESSION['usuario'])) {
+                        ?>
+                        <a class="btn btn-success" type="button" href="login.php"><?php echo $_SESSION['usuario']?></a>
+                        <?php
+                    }
+                    
+                    ?>
+
+                </div>
             </div>
         </div>
     </nav>
