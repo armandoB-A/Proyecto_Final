@@ -152,7 +152,7 @@ session_start();
                         }
                         if (session_status() == 2) {
                             if (isset($_SESSION['usuario']) && isset($_SESSION['pasword']) && $_SESSION['rol'] == "administrador") {
-                                echo "<br><a  href=\"ProcesarImagen.php?folio=" . $row[3] . "\"><button  type='button' class='btn btn-primary' > Actualizar imagen </button></a>";
+                                echo "<br><a  href=\"procesarImagen.php?folio=" . $row[3] . "\"><button  type='button' class='btn btn-primary' > Actualizar imagen </button></a>";
                             }
                         }
                         echo "
