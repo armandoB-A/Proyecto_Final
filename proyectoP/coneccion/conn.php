@@ -1,8 +1,8 @@
 <?php
     $servername = "localhost";
-    $database = "jarmando_pcomponentesh";
-    $username = "root";
-    $password = "  ";
+    $database = "u601353498_pcomponentes";
+    $username = "u601353498_pcomponentessh";
+    $password = "Putofermin1@";
     
     $conn = mysqli_connect($servername, $username, $password, $database);
     
