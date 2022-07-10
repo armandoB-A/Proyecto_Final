@@ -130,7 +130,7 @@ session_start();
                 </div>
             </div>
             <div class="col-9">
-                <div id="conti" class="conenedor-imagenes" style="display: flex;">
+                <div id="conti" class="conenedor-imagenes" style="display: flex; flex-wrap: wrap;">
                     <?php
                     include("proyectoP/coneccion/conn.php");
                     if ($categ == "") {
@@ -142,14 +142,19 @@ session_start();
                     while ($row = mysqli_fetch_array($ejectQuery)) {
                         echo "
                             <div class='card' style='width: 18rem; margin: 20px;'>
-                                <img src='...' class='card-img-top' alt='...'>
+                                <img src='cargarImagen.php?folio=".$row[3]."' alt='Img blob desde MySQL' width=\"600\" />
                                 <div class='card-body' id='" . $row[3] . "' name=\"" . $row[3] . "\" >
                                     <h5 class='card-title'>" . $row[0] . "</h5>
                                     <p class='card-text'>" . $row[1] . "</p>";
                         if (isset($_SESSION['usuario'])) {
+                            
                             echo "<a  href=\"procesarCarrito.php?clave=" . $i  . "&folio=" . $row[3] . "\"><button onclick=\"clickMe('" . $row[3] . "')\" type='button' class='btn btn-primary' > $" . $row[2] . " </button></a>";
-                        } 
-
+                        }
+                        if (session_status() == 2) {
+                            if (isset($_SESSION['usuario']) && isset($_SESSION['pasword']) && $_SESSION['rol'] == "administrador") {
+                                echo "<br><a  href=\"ProcesarImagen.php?folio=" . $row[3] . "\"><button  type='button' class='btn btn-primary' > Actualizar imagen </button></a>";
+                            }
+                        }
                         echo "
                                 </div>
                             </div>

@@ -9,11 +9,18 @@ if (isset($_POST["btnIniciar"])) {
         session_destroy();
     }
     include("proyectoP/coneccion/conn.php");
+    
     $queryP = "call mostrarUsuariosEmpVent ('" . $_POST["loginN"] . "', '" . $_POST["loginC"] . "')";
-    echo $queryP;
-    $exeqQuery = mysqli_query($conn, $queryP);
 
-    while ($tabla = mysqli_fetch_array($exeqQuery)) {
+    $resultado = $conn->query($queryP);
+    //Guardamos el registro en la variable $fila
+    
+    //El resultado de la consulta estarán en nombre y apellido, entonces:
+
+    echo $queryP;
+    //$exeqQuery = mysqli_query($conn, $queryP);
+
+    while ($tabla = $resultado->fetch_array()) {
         $cont = $tabla[0];
         if ($cont == "2") {
             $datos = "Bienvenido " . $tabla[1] . " " . $tabla[2] . " " . $tabla[3] . " " . $tabla[4] . " " . $tabla[5] . " " . $tabla[6] . " " . $tabla[7] . " " . $tabla[8] . " ";

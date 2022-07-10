@@ -1,7 +1,3 @@
-<?php
-session_start();
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,6 +7,7 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="bootstrap-5.1.3-dist/bootstrap-5.1.3-dist/css/bootstrap.css">
     <link rel="stylesheet" href="style/style.css">
     <link rel="stylesheet" href="style/stilo_aboisai.css">
@@ -20,7 +17,6 @@ session_start();
 <body>
     <!--NAVBAR-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
-
         <div class="container-fluid .mb-6">
             <a class="navbar-brand " href="#">Presupuestos para Tu PC </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -46,19 +42,9 @@ session_start();
                     <li class="nav-item">
                         <a class="nav-link" href="login.php">Mi cuenta</a>
                     </li>
-                </ul>
-                <div class="d-flex">
-                    <h5>usuario  </h5>
-                    <?php
-                    if (isset($_SESSION['usuario'])) {
-                        ?>
-                        <a class="btn btn-success" type="button" href="login.php"><?php echo $_SESSION['usuario']?></a>
-                        <?php
-                    }
-                    
-                    ?>
 
-                </div>
+                </ul>
+              
             </div>
         </div>
     </nav>
@@ -112,162 +98,50 @@ session_start();
     </div>
     <!--COMPONENTES-->
     <div id="componentes">
-        <div class="container-md  col-9">
+        <div class="container-md">
             <div class="row">
                 <h3 class="text-center pb-5 pt-5 " style="color:beige"> ¡¡¡Lista de componetes para armar tu pc!!! </h3>
             </div>
-            <div class="row">
-                <div class="col-md">
-                    <div class="card w-100 card-border mb-5">
-                        <img src="img/RTX.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">.</p>
-                            <a href="#" class="btn btn-primary">ver</a>
-                        </div>
-                    </div>
+            <div class="row row-cols- row-cols-md-4 g-4">
+                <?php
+                include("proyectoP/coneccion/conn.php");
+                $catego = "";
+                if ($catego == "") {
+                    $sql = "";
+                } else {
+                    $sql = " WHERE id_categoria_jarmando = (SELECT id_categoria_jarmando FROM categoria_jarmando WHERE nombre_categoria_jarmando='" . $catego . "' )";
+                }
+                $ejectQuery = mysqli_query($conn, "SELECT nombre_componente_jarmando,descripcion_componente_jarmando, precio_actual_componente_jarmando FROM componente_jarmando " . $sql . ";");
+                while ($row = mysqli_fetch_array($ejectQuery)) {
+                    echo "
+                     <div class='col'>
+                     <div class='card h-100'>
+                             <div class='card-body'>
+                                 <h5 class='card-title'>" . $row[0] . "</h5>
+                                 <p class='card-text'>" . $row[1] . "</p>
+                               
+                             </div>
+                         </div>
+                         </div>
 
-                </div>
-                <div class="col-md">
-                    <div class="card w-100 card-border mb-5">
-                        <img clas="imgcard" src="img/2.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">.</p>
-                            <a href="#" class="btn btn-primary">ver</a>
-                        </div>
-                    </div>
+                         ";
+                }
 
-                </div>
-                <div class="col-md">
-                    <div class="card w-100 card-border mb-5">
-                        <img src="img/RTX1.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">.</p>
-                            <a href="#" class="btn btn-primary">ver</a>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="col-md">
-                    <div class="card w-100 card-border mb-5">
-                        <img src="img/RTX3.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">.</p>
-                            <a href="#" class="btn btn-primary">ver</a>
-                        </div>
-                    </div>
-                </div>
-
+                ?>
 
             </div>
-            <div class="row">
-                <div class="col-md">
-                    <div class="card w-100 card-border mb-5">
-                        <img src="img/RTX.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">.</p>
-                            <a href="#" class="btn btn-primary">ver</a>
-                        </div>
-                    </div>
 
-                </div>
-                <div class="col-md">
-                    <div class="card w-100 card-border mb-5">
-                        <img clas="imgcard" src="img/2.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">.</p>
-                            <a href="#" class="btn btn-primary">ver</a>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="col-md">
-                    <div class="card w-100 card-border mb-5">
-                        <img src="img/RTX1.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">.</p>
-                            <a href="#" class="btn btn-primary">ver</a>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="col-md">
-                    <div class="card w-100 card-border mb-5">
-                        <img src="img/RTX3.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">.</p>
-                            <a href="#" class="btn btn-primary">ver</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md">
-                    <div class="card w-100 card-border mb-5">
-                        <img src="img/RTX.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">.</p>
-                            <a href="#" class="btn btn-primary">ver</a>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="col-md">
-                    <div class="card w-100 card-border mb-5">
-                        <img clas="imgcard" src="img/2.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">.</p>
-                            <a href="#" class="btn btn-primary">ver</a>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="col-md">
-                    <div class="card w-100 card-border mb-5">
-                        <img src="img/RTX1.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">.</p>
-                            <a href="#" class="btn btn-primary">ver</a>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="col-md">
-                    <div class="card w-100 card-border mb-5">
-                        <img src="img/RTX3.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">.</p>
-                            <a href="#" class="btn btn-primary">ver</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
-    <div id="Separador">
-
-        <p>Titulo 1</p>
-        <p>Titulo 2</p>
-        <p>Titulo 3</p>
-
     </div>
+
     <!--Footer-->
     <footer>
         <p class="copyright">
             Arma tu gabinete y compra tu mejor laptop gamer con nosotos , confinza y grantia Llamanos al telefo 0180055902 y aparta tu pc gamer Siguenos en todas nuestra Redes sociales Facebook Twiter
         </p>
     </footer>
+
 
     <script src="bootstrap-5.1.3-dist/bootstrap-5.1.3-dist/js/bootstrap.min.js"></script>
 
