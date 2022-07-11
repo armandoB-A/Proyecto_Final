@@ -14,8 +14,8 @@
         <div id="formContent">
 
             <!-- Tabs Titles -->
-            <h2 class="active"> Ingresar </h2>
-            <a href="registrarse.php"><h2 class="inactive underlineHover">Registrarse </h2></a>
+            <a href="login.php"><h2 class="inactive"> Ingresar </h2></a>
+            <h2 class="active underlineHover">Registrarse </h2>
 
             <!-- Icon -->
             <!--<div class="fadeIn first">
@@ -24,8 +24,15 @@
             <!-- Login Form -->
             <form class="needs-validation" action="procesarLogin.php" method="post">
                 <input type="text" id="login" class="fadeIn second" name="loginN" placeholder="login">
+                <input type="text" id="login" class="fadeIn second" name="loginN" placeholder="login">
+                <input type="text" id="login" class="fadeIn second" name="loginN" placeholder="login">
+                <input type="text" id="login" class="fadeIn second" name="loginN" placeholder="login">
+                <input type="text" id="login" class="fadeIn second" name="loginN" placeholder="login">
+                <input type="text" id="login" class="fadeIn second" name="loginN" placeholder="login">
+                <input type="text" id="login" class="fadeIn second" name="loginN" placeholder="login">
+                <input type="text" id="login" class="fadeIn second" name="loginN" placeholder="login">
                 <input type="text" id="password" class="fadeIn third" name="loginC" placeholder="password">
-                <input type="submit" class="fadeIn fourth" value="Log In" name="btnIniciar">
+                <input type="submit" class="fadeIn fourth" value="Log In" name="Registrar">
             </form>
 
             <!-- Remind Passowrd -->
