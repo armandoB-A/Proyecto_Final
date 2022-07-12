@@ -11,7 +11,7 @@
 </head>
 <body>
     <div class="formulario_marcas">
-        <form class="needs-validation" action="pocesar-cat.php" method="post">
+        <form class="needs-validation" action="pocesar-marca.php" method="post">
             <h1>MARCAS</h1>
             <div class="form-row">
                 <div class="col-3"></div>
