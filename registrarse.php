@@ -22,16 +22,15 @@
                 <img src="icon.svg" id="icon" alt="User Icon" />
             </div>-->
             <!-- Login Form -->
-            <form class="needs-validation" action="procesarLogin.php" method="post">
-                <input type="text" id="login" class="fadeIn second" name="loginN" placeholder="login">
-                <input type="text" id="login" class="fadeIn second" name="loginN" placeholder="login">
-                <input type="text" id="login" class="fadeIn second" name="loginN" placeholder="login">
-                <input type="text" id="login" class="fadeIn second" name="loginN" placeholder="login">
-                <input type="text" id="login" class="fadeIn second" name="loginN" placeholder="login">
-                <input type="text" id="login" class="fadeIn second" name="loginN" placeholder="login">
-                <input type="text" id="login" class="fadeIn second" name="loginN" placeholder="login">
-                <input type="text" id="login" class="fadeIn second" name="loginN" placeholder="login">
-                <input type="text" id="password" class="fadeIn third" name="loginC" placeholder="password">
+            <form class="needs-validation" action="ProcesarRegistroU.php" method="post">
+                <input type="text" class="fadeIn second" name="nombre" placeholder="nombre">
+                <input type="text" class="fadeIn second" name="apemt" placeholder="apellido materno">
+                <input type="text" class="fadeIn second" name="apept" placeholder="apellido paterno">
+                <input type="text" class="fadeIn second" name="direc" placeholder="direccion">
+                <input type="text" class="fadeIn second" name="corre" placeholder="correo">
+                <input type="text" class="fadeIn second" name="telef" placeholder="telefono">
+                <input type="text" class="fadeIn second" name="usern" placeholder="nombre de usuario">
+                <input type="text" class="fadeIn third" name="passw" placeholder="password">
                 <input type="submit" class="fadeIn fourth" value="Log In" name="Registrar">
             </form>
 
