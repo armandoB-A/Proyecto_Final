@@ -1,14 +1,14 @@
 <?php
 include("proyectoP/coneccion/conn.php");
 
-$queryP = "call ingresarUsuarios ('" . $_GET['nombre'] . "', '"  . $_GET['apemt'] . "',  '"  . $_GET['apept'] . "',  '"  . $_GET['direc'] . "',  '"  . $_GET['corre'] . "', '"  . $_GET['telef'] . "');";
+$queryP = "call ingresarUsuarios ('" . $_POST['nombre'] . "', '"  . $_POST['apemt'] . "',  '"  . $_POST['apept'] . "',  '"  . $_POST['direc'] . "',  '"  . $_POST['corre'] . "', '"  . $_POST['telef'] . "');";
 echo $queryP;
 $exeqQuery = mysqli_query($conn, $queryP);
 $tabla = mysqli_fetch_array($exeqQuery);
 if (isset($tabla[0])) {
 
     include("proyectoP/coneccion/conn.php");
-    $queryP = "CALL ingresarUSU('". $_GET['usern'] . "', '". $_GET['passw'] . "', ".$tabla[0].");";
+    $queryP = "CALL ingresarUSU('". $_POST['usern'] . "', '". $_POST['passw'] . "', ".$tabla[0].");";
     $ejectQuery = mysqli_query($conn, $queryP);
     $row = mysqli_fetch_array($ejectQuery);
     echo "<br><h1>Cliente agregado con exito</h1>";
